@@ -1,25 +1,25 @@
 #include <stdio.h>
 
-void sort(int* a, int n){
+void sort(int* a, int n, int o, int t){
   int i;
   int k = 0;
 
   for(i = 0; i < n; i++){
-    if(a[i] == 0){
-      a[k++] = 0;
+    if(a[i] == o){
+      a[k++] = o;
     }
   }
 
   for(i = k; i < n; i++){
-    a[i] = 1;
+    a[i] = t;
   }
 }
 
 int main(void){
   int i;
-  int arr[] = {1,0,0,1,1,1,0,0,0,0,1,1};
+  int arr[] = {0,0,2,2,0,2,0};
   int size = sizeof(arr)/sizeof(arr[0]);
-  sort(arr, size);
+  sort(arr, size, 0, 2);
   for(i = 0; i < size; i++){
     printf("%i", arr[i]);
   }
