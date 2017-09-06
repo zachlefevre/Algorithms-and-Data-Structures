@@ -17,9 +17,9 @@ void sort(int* a, int n, int o, int t){
 
 int main(void){
   int i;
-  int arr[] = {0,0,2,2,0,2,0};
+  int arr[] = {0,0,1,1,0,1,0};
   int size = sizeof(arr)/sizeof(arr[0]);
-  sort(arr, size, 0, 2);
+  sort(arr, size, 0, 1);
   for(i = 0; i < size; i++){
     printf("%i", arr[i]);
   }
