@@ -2,8 +2,7 @@
 #define LINKED_LIST_H
 
 #include <stdbool.h>
-
-typedef int Node_Type;
+#include "nodetype.h"
 
 typedef struct Node_LL{
   Node_Type data;

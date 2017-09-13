@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include "linkedlist.h"
+#include "nodetype.h"
 
 Linked_List *LL_init()
 {
@@ -68,7 +69,6 @@ bool LL_free(Linked_List *list)
 {
   Node_LL *trace;
   for(trace = list -> head; trace != NULL;){
-    printf("%d\n",trace -> data);
     Node_LL *tmp = trace;
     trace = trace -> next;
     Node_LL_free(tmp);
@@ -87,6 +87,7 @@ Node_LL *Node_LL_init(Node_Type q)
 Node_LL *Node_LL_free(Node_LL *n)
 {
   Node_LL *tmp = n -> next;
+  Node_Type_free(n -> data);
   free(n);
   return n;
 }
