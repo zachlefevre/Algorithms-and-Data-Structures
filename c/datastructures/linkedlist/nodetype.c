@@ -6,6 +6,7 @@
 bool Node_Type_free(Node_Type *n)
 {
   printf("Freeing Node_Type %d\n", n -> t);
+  free(n);
 }
 
 Node_Type *Node_Type_init(int d)
