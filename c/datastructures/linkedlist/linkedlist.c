@@ -12,7 +12,7 @@ Linked_List *LL_init()
   return l;
 }
 
-bool LL_append(Linked_List *list, Node_Type q)
+bool LL_append(Linked_List *list, Node_Type *q)
 {
   if(list == NULL) return false;
   Node_LL *n = Node_LL_init(q);
@@ -28,7 +28,7 @@ bool LL_append(Linked_List *list, Node_Type q)
   return false;
 }
 
-bool LL_prepend(Linked_List *list, Node_Type q)
+bool LL_prepend(Linked_List *list, Node_Type *q)
 {
   if(list == NULL) return false;
   Node_LL *n = Node_LL_init(q);
@@ -48,13 +48,13 @@ void LL_print(Linked_List *list)
 {
   Node_LL *trace;
   for(trace = list -> head; trace != NULL; trace = trace -> next){
-    printf("%d ", trace -> data);
+    Node_LL_print(trace);
   }
   printf("\n");
   return;
 }
 
-Linked_List *LL_atLL(Node_Type *a, int size){
+Linked_List *LL_atLL(Node_Type **a, int size){
   int i;
 
   if(a == NULL) return NULL;
@@ -76,12 +76,17 @@ bool LL_free(Linked_List *list)
   free(list);
 }
 
-Node_LL *Node_LL_init(Node_Type q)
+Node_LL *Node_LL_init(Node_Type *q)
 {
   Node_LL *n = (Node_LL *) malloc(sizeof(Node_LL));
   n -> data = q;
   n -> next = NULL;
   return n;
+}
+
+void Node_LL_print(Node_LL *n)
+{
+  Node_Type_print(n -> data);
 }
 
 Node_LL *Node_LL_free(Node_LL *n)
